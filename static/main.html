@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block content %}
+<div style="margin: auto; width: 60%; text-align: center; margin-top: 20px;">
+  <div style="margin: auto; text-align: center; margin-bottom: 0px">
+    <h2>Recipe Book</h2>
+  </div>
+  <hr size="5 px" style="color: black; margin-top: 0px">
+</div>
+<!-- <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active" style="align-self: center;">
+            <img src="./images/pav_bhaji.jpeg" alt="pav bhaji" width="600px">
+          </div>
+          <div class="carousel-item">
+            <img src="./images/bhel.jpeg" alt="bhel" width="600px">
+          </div>
+          <div class="carousel-item">
+            <img src="./images/chhole.webp" alt="Chhole" width="600px">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div> -->
+<div style="margin: auto; width: 60%; text-align: center; margin-top: 20px;">
+  <div style="margin: auto; text-align: center; margin-top: 10px; border: 1px solid rgb(0, 0, 0)">
+    {% for recipe in recipes %}
+    <div style="align-self: left; margin-top: 10px; background: rgb(255, 217, 217);">
+      <h2>{{recipe.id}}. {{recipe.recipe_name}}</h2>
+      <h4 style="text-align: center;">by Chef {{recipe.author_name}}</h4>
+      Level : {{recipe.level}}<br>
+      Time required : {{recipe.time}}
+      <hr size="3px">
+    </div>
+    <div style="text-align: left; margin: 10px;">
+      Ingredients : {{recipe.ing}}
+      <hr size="3px">
+      Steps: <br>
+      {{recipe.step}}
+    </div>
+    <hr size="5px"><br>
+    <form action="edit" method="post">
+      {% csrf_token %}
+      <button type="submit" id="id:{{recipe.id}}" class="btn btn-outline-dark" name="id: {{recipe.id}}">Edit</button>
+    </form><br>
+    <form action="remove" method="post">
+      {% csrf_token %}
+      <button type="submit" id="rem:{{recipe.id}}" class="btn btn-outline-dark" name="rem: {{recipe.id}}">Delete</button>
+    </form><br><br>
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+<!-- Ingredients -->
+<!-- Steps -->
+{% block content %}
+<form action="create_recipe" method="post">
+    <div>
+        <label class="col-sm-2 col-form-label" style="margin-left: 20px; text-align: left"><h1>{{recipe_name}}</h1>
+        </label>
+    </div>
+    <div>
+        <label class="col-sm-2 col-form-label" style="margin-left: 20px; text-align: left">Ingredients:
+        </label>
+        <input type="text" name="ing" />
+    </div>
+    <div style="align-self: left; margin-top: 10px">
+        <label class="col-sm-2 col-form-label" style="margin-left: 20px; text-align: left">Steps:
+        </label>
+        <div style="margin-left: 20px; width: 60%; margin-top: 10px;"><textarea id="exampleFormControlTextarea1" rows="10" cols="100" name="steps"></textarea></div>
+    </div>
+    
+    {% csrf_token %}
+            <input class="btn btn-outline-dark" title="Create"
+                style="margin-left: 20px; margin-top: 10px; margin-bottom: 10px;" value="Create" type="submit" />
+</form>
+{% endblock %}

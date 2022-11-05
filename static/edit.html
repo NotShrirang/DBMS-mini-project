@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block content %}
+<form action="update" method="post">
+    <div style="margin: auto; width: 60%; text-align: center; margin-top: 20px;">
+        <div style="margin: auto; text-align: center; margin-bottom: 0px">
+            <h2>Edit Recipe : {{recipe_name}}</h2>
+        </div>
+        <hr size="5 px" style="color: black; margin-top: 0px">
+        <div style="margin: auto; text-align: center; margin-top: 10px; border: 1px solid rgb(0, 0, 0)">
+            <div style="align-self: left; margin-top: 10px">
+                <label class="col-sm-2 col-form-label" style="margin-left: 20px; text-align: left">Recipe Name:
+                </label>
+                <input type="text" name="recipe">
+            </div>
+            <div style="align-self: left; margin-top: 10px">
+                <label class="col-sm-2 col-form-label" style="margin-left: 20px; text-align: left">Chef Name:
+                </label>
+                <input type="text" name="author_name" />
+            </div>
+            <div style="align-self: left; margin-top: 10px">
+                <label class="col-sm-2 col-form-label" style="margin-left: 20px; text-align: left">Level: </label>
+                <input type="text" name="level" />
+            </div>
+            <div style="align-self: left; margin-top: 10px">
+                <label class="col-sm-2 col-form-label" style="margin-left: 20px; text-align: left">Time:
+                </label>
+                <input type="text" name="time" />
+            </div>
+            <div style="align-self: left; margin-top: 10px">
+                <label class="col-sm-2 col-form-label" style="margin-left: 20px; text-align: left">Ingredients:
+                </label>
+                <input type="text" name="ing" />
+            </div>
+            <div style="align-self: left; margin-top: 10px">
+                <label class="col-sm-2 col-form-label" style="margin-left: 20px; text-align: left">Steps:
+                </label>
+                <textarea id="exampleFormControlTextarea1" rows="1" cols="23" name="steps"></textarea>
+            </div>
+            {% csrf_token %}
+            <input id="id:{{id}}" name="id:{{id}}" class="btn btn-outline-dark" title="Update"
+                style="margin-left: 20px; margin-top: 10px; margin-bottom: 10px;" value="Update" type="submit" />
+
+        </div>
+    </div>
+</form>
+
+{% endblock %}

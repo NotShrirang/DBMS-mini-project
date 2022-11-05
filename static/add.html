@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+<!-- recipe -->
+<!-- author_name -->
+<!-- level -->
+<!-- time -->
+
+{% block content %}
+<form action="steps" method="post">
+    <div style="margin: auto; width: 60%; text-align: center; margin-top: 20px;">
+        <div style="margin: auto; text-align: center; margin-bottom: 0px">
+            <h2>Create New Recipe</h2>
+        </div>
+        <hr size="5 px" style="color: black; margin-top: 0px">
+        <div style="margin: auto; text-align: center; margin-top: 10px; border: 1px solid rgb(0, 0, 0)">
+            <div style="align-self: left; margin-top: 10px">
+                <label class="col-sm-2 col-form-label" style="margin-left: 20px; text-align: left">Recipe Name:
+                </label>
+                <input type="text" name="recipe">
+            </div>
+            <div style="align-self: left; margin-top: 10px">
+                <label class="col-sm-2 col-form-label" style="margin-left: 20px; text-align: left">Chef Name:
+                </label>
+                <input type="text" name="author_name" />
+            </div>
+            <div style="align-self: left; margin-top: 10px">
+                <label class="col-sm-2 col-form-label" style="margin-left: 20px; text-align: left">Level: </label>
+                <input type="text" name="level" />
+            </div>
+            <div style="align-self: left; margin-top: 10px">
+                <label class="col-sm-2 col-form-label" style="margin-left: 20px; text-align: left">Time:
+                </label>
+                <input type="text" name="time" />
+            </div>
+            {% csrf_token %}
+            <input class="btn btn-outline-dark" title="Create"
+                style="margin-left: 20px; margin-top: 10px; margin-bottom: 10px;" value="Create" type="submit" />
+
+        </div>
+    </div>
+</form>
+{% endblock %}
